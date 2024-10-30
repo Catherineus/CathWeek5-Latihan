@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Data Pegawai</title>
+  <style>
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-box {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1em;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      border: 1px solid #332530;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="email"] {
+      padding: 8px;
+      border: 1px solid #332530;
+      border-radius: 4px;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 4px;
+      display: none;
+    }
+    .success-message {
+      color: green;
+      font-size: 0.9em;
+      margin-top: 4px;
+      display: none;
+    }
+    button {
+      padding: 10px;
+      background-color: #b641ac;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b641ac;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <div class="form-box">
+    <h1>Form Data Pegawai</h1>
+    <div class="form-group">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" placeholder="Masukkan Nama Lengkap">
+      <p class="error-message" id="error-nama">Nama harus diisi yaa Gantenk^.^</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Masukkan Email">
+      <p class="error-message" id="error-email">Email harus diisi yaa Gantenk^.^</p>
+    </div>
+    <div class="form-group">
+      <label for="posisi">Posisi</label>
+      <input type="text" id="posisi" placeholder="Masukkan Posisi">
+      <p class="error-message" id="error-posisi">Posisi harus diisi yaa Gantenk^.^</p>
+    </div>
+    <button type="button" onclick="validasiForm()">Submit</button>
+    <p class="success-message" id="success-message">Form berhasil diisi, terima kasih Gantenk ^.^</p>
+  </div>
+</div>
+
+<script>
+  function validasiForm() {
+    const nama = document.getElementById("nama");
+    const email = document.getElementById("email");
+    const posisi = document.getElementById("posisi");
+
+    const errorNama = document.getElementById("error-nama");
+    const errorEmail = document.getElementById("error-email");
+    const errorPosisi = document.getElementById("error-posisi");
+    const successMessage = document.getElementById("success-message");
+
+    let valid = true;
+
+    if (nama.value.trim() === "") {
+      errorNama.style.display = "block";
+      valid = false;
+    } else {
+      errorNama.style.display = "none";
+    }
+
+    if (email.value.trim() === "") {
+      errorEmail.style.display = "block";
+      valid = false;
+    } else {
+      errorEmail.style.display = "none";
+    }
+
+    if (posisi.value.trim() === "") {
+      errorPosisi.style.display = "block";
+      valid = false;
+    } else {
+      errorPosisi.style.display = "none";
+    }
+
+    if (valid) {
+      successMessage.style.display = "block";
+    } else {
+      successMessage.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
